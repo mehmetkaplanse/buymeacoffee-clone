@@ -1,3 +1,4 @@
+import Users from "@/components/user/Users";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <button className="bg-yellow-300 px-8 py-4 font-bold rounded-full">
         Start my page
       </button>
+      <Users />
     </section>
   );
 }

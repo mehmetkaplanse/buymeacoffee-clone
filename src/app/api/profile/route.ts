@@ -27,3 +27,18 @@ export async function POST(request: Request) {
     return NextResponse.error();
   }
 }
+
+export async function GET() {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI as string);
+    const users = await ProfileInfoModel.find();
+    if (users) {
+      return NextResponse.json(users);  
+    } else {
+      return NextResponse.json({ message: "No users found" }, { status: 404 });
+    }
+  } catch (error) {
+    console.error(error);
+    return NextResponse.error();
+  }
+}
